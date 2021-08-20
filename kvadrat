@@ -1,0 +1,47 @@
+package edu.javacourse.array;
+
+public class SpiralArray {
+	public static void main(String[] args) {
+        // Объявим коснтанту для размера массива
+        int SIZE = 8;
+        int [][] graph = new int [SIZE][SIZE];
+        int j=-1;
+        int a=-1;
+        int i=0;
+        int h=0;
+        int s = SIZE; 
+        //до 5 идет 0-1
+    	 for(;h!=s*s;) {
+    		  for(j+=1;j<s;++j) {
+    		   graph[i][j]=++h;
+    		   }
+    	   j-=1;
+    	   //до 9 идет 04
+    	   for(i+=1;i<s;++i) {
+    		   graph[i][j]=++h;
+    	   }
+    	   i-=1;
+    	   // до 13 идет 44
+    	   for(j-=1;j>a;--j) {
+    		   graph[i][j]=++h; 		   
+    	   }
+    	   j+=1;
+    	   a+=1;
+    	   // до 16 идет 40
+    	   for (i-=1;i>a;--i) {
+    		   graph[i][j]=++h;  
+    	   }
+    	   i+=1;
+    	   s-=1;
+    	 }
+         for (int o=0; o < SIZE; o++) {
+             // Цикл по второй размерности выводит колонки - вывод одной строки
+             for (int k=0; k < SIZE; k++) {
+                 // Используем оператор print - без перехода на следующую строку
+                 System.out.format ("%3d",graph[o][k]);
+             }
+             // Переход на следующую строку
+             System.out.println();
+         }
+     }
+ }
